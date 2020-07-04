@@ -23,7 +23,7 @@ export default class TimeIndex extends React.Component<
     super(props);
     this.state = {
       times: [],
-      updateActive: true,
+      updateActive: false,
       timeToUpdate: "",
     };
   }
@@ -88,8 +88,6 @@ export default class TimeIndex extends React.Component<
   render() {
     return (
       <div>
-        <h1>Index Works</h1>
-        <hr />
         <Container>
           <Row>
             <Col md="12">
@@ -97,6 +95,7 @@ export default class TimeIndex extends React.Component<
                 // fetchTimes={this.fetchTimes}
                 token={this.props.token}
                 updateUsername={this.props.updateUsername}
+                getTimes={this.getTimes}
               />
             </Col>
             <Col md="12">

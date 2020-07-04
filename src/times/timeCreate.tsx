@@ -8,13 +8,12 @@ import {
   Container,
   Row,
   Col,
-  Fade,
 } from "reactstrap";
-import { stringify } from "querystring";
 
 type acceptedProps = {
   token: any;
   updateUsername: any;
+  getTimes: any;
   // fetchTimes: any;
 };
 
@@ -44,7 +43,7 @@ export default class TimeCreate extends React.Component<
   }
 
   handleSubmit = (event: any) => {
-    // event.preventDefault();
+    event.preventDefault();
     fetch(`http://localhost:4000/time/`, {
       method: "POST",
       body: JSON.stringify({
@@ -62,12 +61,12 @@ export default class TimeCreate extends React.Component<
       .then((logData) => {
         console.log(logData);
         this.setState({
-          nameOfPark: this.state.nameOfPark,
-          route: this.state.route,
-          length: this.state.length,
-          time: this.state.time,
+          nameOfPark: "",
+          route: "",
+          length: "",
+          time: "",
         });
-        // this.props.fetchTimes();
+        this.props.getTimes();
         // is this.props.fetchTimes right?
       });
   };

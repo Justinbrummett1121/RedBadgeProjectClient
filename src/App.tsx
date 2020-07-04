@@ -1,4 +1,5 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 import { BrowserRouter as Router } from "react-router-dom";
@@ -6,12 +7,13 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Auth from "./auth/Auth";
 import TimeIndex from "./times/timeIndex";
 import Sidebar from "./components/site/Sidebar";
-import { setupMaster } from "cluster";
+import AdminPanel from "./components/AdminPanel/AdminPanel";
 
 type valueTypes = {
   username: any;
   setUsername: any;
   setToken: any;
+  setUserRole: string | any;
 };
 
 export default class App extends React.Component<{}, valueTypes> {
@@ -21,6 +23,7 @@ export default class App extends React.Component<{}, valueTypes> {
       username: "",
       setUsername: "",
       setToken: "",
+      setUserRole: "",
     };
   }
 
@@ -36,6 +39,9 @@ export default class App extends React.Component<{}, valueTypes> {
     if (localStorage.getItem("username")) {
       this.setState({ setUsername: localStorage.getItem("username") });
     }
+    if (localStorage.getItem("userRole")) {
+      this.setState({ setUserRole: localStorage.getItem("userRole") });
+    }
   }
 
   updateToken = (newToken: string) => {
@@ -50,6 +56,17 @@ export default class App extends React.Component<{}, valueTypes> {
     console.log(newUsername);
   };
 
+  updateUserRole = (newUserRole: string) => {
+    localStorage.setItem("userRole", newUserRole);
+    this.setState({ setUserRole: newUserRole });
+    console.log(this.state.setUserRole);
+  };
+
+  clearToken = () => {
+    localStorage.clear();
+    this.setState({ setUserRole: "" });
+  };
+
   protectedViews = () => {
     return this.state.setToken === localStorage.getItem("token") ? (
       <TimeIndex
@@ -57,7 +74,27 @@ export default class App extends React.Component<{}, valueTypes> {
         updateUsername={this.updateUsername}
       />
     ) : (
-      <Auth token={this.updateToken} updateUsername={this.updateUsername} />
+      <Auth
+        token={this.updateToken}
+        updateUsername={this.updateUsername}
+        updateUserRole={this.updateUserRole}
+      />
+    );
+  };
+
+  protectedViewsAdmin = () => {
+    return localStorage.getItem("userRole") === "Admin" ? (
+      <AdminPanel
+        token={this.updateToken}
+        updateUsername={this.updateUsername}
+        updateUserRole={this.updateUserRole}
+      />
+    ) : (
+      <Auth
+        token={this.updateToken}
+        updateUsername={this.updateUsername}
+        updateUserRole={this.updateUserRole}
+      />
     );
   };
 
@@ -67,8 +104,9 @@ export default class App extends React.Component<{}, valueTypes> {
         <Router>
           <Sidebar
             protectedViews={this.protectedViews}
+            protectedViewsAdmin={this.protectedViewsAdmin}
             token={this.state.setToken}
-            updatedUsername={this.updateUsername}
+            updateUsername={this.updateUsername}
           />
         </Router>
       </div>

@@ -3,8 +3,9 @@ import { Route, Link, Switch } from "react-router-dom";
 
 type acceptedProps = {
   token: any;
-  updatedUsername: any;
+  updateUsername: any;
   protectedViews: any;
+  protectedViewsAdmin: any;
 };
 
 export default class Sidebar extends React.Component<acceptedProps, {}> {
@@ -25,6 +26,10 @@ export default class Sidebar extends React.Component<acceptedProps, {}> {
                   <Link to="/">Home</Link>
                 </li>
                 <hr />
+                <li>
+                  <Link to="/AdminPanel">Admin Panel</Link>
+                </li>
+                <hr />
               </ul>
             </div>
           </div>
@@ -32,6 +37,9 @@ export default class Sidebar extends React.Component<acceptedProps, {}> {
             <Switch>
               <Route exact path="/">
                 {this.props.protectedViews()}
+              </Route>
+              <Route exact path="/AdminPanel">
+                {this.props.protectedViewsAdmin()}
               </Route>
             </Switch>
           </div>

@@ -1,11 +1,11 @@
 import React from "react";
 import Login from "./Login";
 import Signup from "./Signup";
-import { render } from "@testing-library/react";
 
 type acceptedProps = {
   token: any;
   updateUsername: any;
+  updateUserRole: string | any;
   //   updateMessage: any;
 };
 
@@ -32,11 +32,13 @@ export default class Auth extends React.Component<acceptedProps, valueTypes> {
       <Signup
         token={this.props.token}
         updateUsername={this.props.updateUsername}
+        updateUserRole={this.props.updateUserRole}
       />
     ) : (
       <Login
         token={this.props.token}
         updateUsername={this.props.updateUsername}
+        updateUserRole={this.props.updateUserRole}
       />
     );
   };

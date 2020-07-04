@@ -11,7 +11,8 @@ import { FormGroup, Label, Input, Form, Button } from "reactstrap";
 
 type acceptedProps = {
   token: any;
-  updateUsername: any;
+  updateUsername: string | any;
+  updateUserRole: string | any;
 };
 
 type valueTypes = {
@@ -45,6 +46,7 @@ export default class Login extends React.Component<acceptedProps, valueTypes> {
         this.props.token(data.sessionToken);
         console.log(data);
         this.props.updateUsername(data.user.username);
+        this.props.updateUserRole(data.user.userRole);
         // this.props.updateMessage(data.message);
       });
   };
