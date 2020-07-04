@@ -127,6 +127,16 @@ export default class AdminPanel extends React.Component<
       });
   };
 
+  deleteUser = (user: any) => {
+    fetch(`http://localhost:4000/user/${user.id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: this.props.token,
+      },
+    }).then(() => this.getUsers());
+  };
+
   render() {
     return (
       <>
@@ -217,7 +227,7 @@ export default class AdminPanel extends React.Component<
                       variant="contained"
                       color="secondary"
                       onClick={() => {
-                        this.deleteTime(time);
+                        this.deleteUser(user);
                       }}
                     >
                       Delete
