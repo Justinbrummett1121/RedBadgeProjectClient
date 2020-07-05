@@ -1,13 +1,4 @@
 import React from "react";
-import Table from "@material-ui/core/Table";
-// import { Button } from "@material-ui/core";
-
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
 import {
   FormGroup,
   Label,
@@ -18,6 +9,9 @@ import {
   ModalHeader,
   ModalBody,
 } from "reactstrap";
+import * as bcrypt from "bcryptjs";
+
+const salt = bcrypt.genSaltSync(10);
 
 type acceptedProps = {
   token: any;
@@ -54,7 +48,7 @@ export default class UserEdit extends React.Component<
       body: JSON.stringify({
         user: {
           username: this.state.editUsername,
-          password: this.state.editPassword,
+          password: bcrypt.hashSync(this.state.editPassword, salt),
         },
       }),
       headers: new Headers({
