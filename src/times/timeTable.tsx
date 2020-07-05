@@ -1,6 +1,7 @@
 import React from "react";
 import Table from "@material-ui/core/Table";
-import { Button } from "@material-ui/core";
+// import { Button } from "@material-ui/core";
+import { Button } from "antd";
 
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -102,8 +103,7 @@ export default class TimeTable extends React.Component<
                 <TableCell align="right">{time.time}</TableCell>
                 <TableCell align="right">
                   <Button
-                    variant="contained"
-                    color="primary"
+                    type="primary"
                     onClick={() => {
                       this.props.editUpdateTime(time);
                       this.props.updateOn();
@@ -113,8 +113,8 @@ export default class TimeTable extends React.Component<
                   </Button>
                   <Button
                     style={{ marginLeft: "5px" }}
-                    variant="contained"
-                    color="secondary"
+                    type="primary"
+                    danger
                     onClick={() => {
                       this.deleteTime(time);
                     }}

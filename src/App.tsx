@@ -1,5 +1,6 @@
 import React from "react";
-import "bootstrap/dist/css/bootstrap.css";
+// import "bootstrap/dist/css/bootstrap.css";
+import "antd/dist/antd.less";
 import "./App.css";
 
 import { BrowserRouter as Router } from "react-router-dom";

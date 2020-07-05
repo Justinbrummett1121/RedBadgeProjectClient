@@ -2,14 +2,13 @@ import React from "react";
 import {
   FormGroup,
   Label,
-  Input,
   Form,
-  Button,
   Modal,
   ModalHeader,
   ModalBody,
 } from "reactstrap";
 import * as bcrypt from "bcryptjs";
+import { Input, Space, Button } from "antd";
 
 const salt = bcrypt.genSaltSync(10);
 
@@ -62,33 +61,47 @@ export default class UserEdit extends React.Component<
 
   render() {
     return (
-      <Modal isOpen={true}>
+      <Modal isOpen={true} style={{ marginLeft: "20px" }}>
         <ModalHeader>Edit User</ModalHeader>
         <hr />
         <ModalBody>
           <Form onSubmit={this.usersUpdate}>
             <FormGroup>
-              <Label htmlFor="name">Edit Username:</Label>
-              <Input
-                name="name"
-                value={this.state.editUsername}
-                onChange={(e) =>
-                  this.setState({ editUsername: e.target.value })
-                }
-              />
+              <Label htmlFor="username">Edit Username:</Label>
+              <Space direction="vertical">
+                <Input
+                  style={{ marginLeft: "7px", marginBottom: "5px" }}
+                  name="name"
+                  value={this.state.editUsername}
+                  onChange={(e) =>
+                    this.setState({ editUsername: e.target.value })
+                  }
+                />
+              </Space>
+
+              {/* // <Input
+              //   name="name"
+              //   value={this.state.editUsername}
+              //   onChange={(e) =>
+              //     this.setState({ editUsername: e.target.value })
+              //   }
+              // /> */}
             </FormGroup>
             <FormGroup>
               <Label htmlFor="day">Edit Password:</Label>
-              <Input
-                name="day"
-                value={this.state.editPassword}
-                onChange={(e) =>
-                  this.setState({ editPassword: e.target.value })
-                }
-              />
+              <Space direction="vertical">
+                <Input
+                  style={{ marginLeft: "10px" }}
+                  name="password"
+                  value={this.state.editPassword}
+                  onChange={(e) =>
+                    this.setState({ editPassword: e.target.value })
+                  }
+                />
+              </Space>
             </FormGroup>
 
-            <Button type="submit" variant="contained" color="primary">
+            <Button htmlType="submit" type="primary">
               Confirm
             </Button>
           </Form>

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Link, Switch } from "react-router-dom";
+// import "./Sidebar.css";
 
 type acceptedProps = {
   token: any;
@@ -33,6 +34,22 @@ export default class Sidebar extends React.Component<acceptedProps, {}> {
               </ul>
             </div>
           </div>
+          {/* <nav className="navbar">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <a href="#" className="nav-link">
+                <span className="link-text">Cats</span>
+              </a>
+            </li>
+            <li>
+              <Link to="/">Home</Link>
+            </li>
+            <hr />
+            <li>
+              <Link to="/AdminPanel">Admin Panel</Link>
+            </li>
+          </ul>
+        </nav> */}
           <div className="sidebar-route">
             <Switch>
               <Route exact path="/">

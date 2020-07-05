@@ -4,12 +4,12 @@ import {
   Form,
   FormGroup,
   Label,
-  Input,
   Modal,
   ModalHeader,
   ModalBody,
-  Button,
 } from "reactstrap";
+
+import { Button, Input } from "antd";
 
 type acceptedProps = {
   token: any;
@@ -72,6 +72,7 @@ export default class TimeEdit extends React.Component<
                 <Label htmlFor="name">Edit Name of Park:</Label>
                 <Input
                   name="name"
+                  style={{ maxWidth: "250px" }}
                   value={this.state.nameOfPark}
                   onChange={(e) =>
                     this.setState({ nameOfPark: e.target.value })
@@ -82,6 +83,7 @@ export default class TimeEdit extends React.Component<
                 <Label htmlFor="day">Edit Route:</Label>
                 <Input
                   name="day"
+                  style={{ maxWidth: "250px" }}
                   value={this.state.route}
                   onChange={(e) => this.setState({ route: e.target.value })}
                 />
@@ -90,6 +92,7 @@ export default class TimeEdit extends React.Component<
                 <Label htmlFor="location">Edit Length:</Label>
                 <Input
                   name="location"
+                  style={{ maxWidth: "250px" }}
                   value={this.state.length}
                   onChange={(e) => this.setState({ length: e.target.value })}
                 />
@@ -98,12 +101,13 @@ export default class TimeEdit extends React.Component<
                 <Label htmlFor="time">Edit Time:</Label>
                 <Input
                   name="time"
+                  style={{ maxWidth: "250px" }}
                   value={this.state.time}
                   onChange={(e) => this.setState({ time: e.target.value })}
                 />
               </FormGroup>
 
-              <Button type="submit" variant="contained" color="primary">
+              <Button htmlType="submit" type="primary">
                 Confirm
               </Button>
             </Form>
