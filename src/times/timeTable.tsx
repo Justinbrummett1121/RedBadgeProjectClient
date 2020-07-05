@@ -103,7 +103,7 @@ export default class TimeTable extends React.Component<
                 <TableCell align="right">{time.time}</TableCell>
                 <TableCell align="right">
                   <Button
-                    type="primary"
+                    type="link"
                     onClick={() => {
                       this.props.editUpdateTime(time);
                       this.props.updateOn();
@@ -113,7 +113,7 @@ export default class TimeTable extends React.Component<
                   </Button>
                   <Button
                     style={{ marginLeft: "5px" }}
-                    type="primary"
+                    type="link"
                     danger
                     onClick={() => {
                       this.deleteTime(time);

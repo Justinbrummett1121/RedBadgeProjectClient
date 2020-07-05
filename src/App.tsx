@@ -2,6 +2,7 @@ import React from "react";
 // import "bootstrap/dist/css/bootstrap.css";
 import "antd/dist/antd.less";
 import "./App.css";
+// import {} from "@types/styled-components/cssprop";
 
 import { BrowserRouter as Router } from "react-router-dom";
 

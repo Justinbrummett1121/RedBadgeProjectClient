@@ -63,7 +63,21 @@ export default class TimeEdit extends React.Component<
   render() {
     return (
       <>
-        <Modal isOpen={true}>
+        <Modal
+          isOpen={true}
+          style={{
+            backgroundColor: "lightgray",
+            // opacity: "0.8",
+            borderRadius: "10px",
+            paddingTop: "10px",
+            paddingLeft: "20px",
+            paddingBottom: "10px",
+            marginTop: "50px",
+            marginRight: "20px",
+            marginLeft: "10%",
+            maxWidth: "75%",
+          }}
+        >
           <ModalHeader>Edit your Trail Time</ModalHeader>
           <hr />
           <ModalBody>

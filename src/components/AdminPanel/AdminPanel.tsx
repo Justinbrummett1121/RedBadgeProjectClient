@@ -123,7 +123,18 @@ export default class AdminPanel extends React.Component<
 
   render() {
     return (
-      <>
+      <div
+        style={{
+          backgroundColor: "lightgray",
+          // opacity: "0.8",
+          borderRadius: "10px",
+          paddingTop: "50px",
+          marginTop: "50px",
+          marginRight: "20px",
+          marginLeft: "10%",
+          maxWidth: "75%",
+        }}
+      >
         <Form
           onSubmit={this.adminRegister}
           style={{
@@ -204,8 +215,7 @@ export default class AdminPanel extends React.Component<
             overflow: "scroll",
             overflowX: "hidden",
             maxHeight: "600px",
-            marginLeft: "20px",
-            marginBottom: "20px",
+            marginBottom: "40px",
             paddingTop: "10px",
             display: "flex",
             justifyContent: "center",
@@ -270,7 +280,7 @@ export default class AdminPanel extends React.Component<
         ) : (
           <></>
         )}
-      </>
+      </div>
     );
   }
 }

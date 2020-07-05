@@ -3,6 +3,19 @@ import TimeTable from "./timeTable";
 import TimeCreate from "./timeCreate";
 import TimeEdit from "./timeEdit";
 import { Container, Row, Col } from "reactstrap";
+// import styled from "@types/styled-components/cssprop";
+
+// const Div = styled.div`
+//   background-color: #363136;
+//   opacity: 0.8;
+//   border-radius: 5px;
+//   padding-left: 10px;
+//   padding-top: 10px;
+//   padding-bottom: 10px;
+//   padding-right: 5px;
+//   margin-right: 20px;
+//   max-width: 100%;
+// `;
 
 type acceptedProps = {
   token: any;
@@ -87,7 +100,18 @@ export default class TimeIndex extends React.Component<
 
   render() {
     return (
-      <div>
+      <div
+        style={{
+          backgroundColor: "lightgray",
+          // opacity: "0.8",
+          borderRadius: "10px",
+          paddingTop: "50px",
+          marginTop: "50px",
+          marginRight: "20px",
+          marginLeft: "10%",
+          maxWidth: "75%",
+        }}
+      >
         <Container>
           <Row>
             <Col md="12">

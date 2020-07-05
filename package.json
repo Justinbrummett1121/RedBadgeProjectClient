@@ -17,6 +17,7 @@
     "@types/react-dom": "^16.9.8",
     "@types/react-router-dom": "^5.1.5",
     "@types/reactstrap": "^8.4.3",
+    "@types/styled-components": "^5.1.0",
     "antd": "^4.4.0",
     "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
